@@ -1,0 +1,71 @@
+\documentclass{PPGSOF}
+
+% Esse dois comando a seguir servem para criar o modelo de cabeçalho confome
+% customizaçao no modelo ppgsof
+\pagestyle{fancy}
+\fancyhead[C]{\fancyheadppgsof}
+%----------------------------------------------------------------------------
+\def\numedital{009}
+
+\def\subjectedital{Resultado Oficial da avaliação da heteroidentificação e perícia médica para candidatos por ações afirmativas}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{Edital nº \numedital/\the\year\ - PPGSOF.}
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+\raggedleft Boa Vista, Brasil. \today.
+\end{minipage}
+
+\vspace{0.5cm}
+
+\hspace*{8cm}%
+\parbox{\dimexpr\textwidth-8.5cm\relax}{%
+Edital de \subjectedital ao processo de seleção da turma 2026 no Programa de Pós-Graduação em Sociedade e Fronteiras - PPGSOF.
+}
+
+\vspace{0.5cm}
+
+A Comissão de Seleção do Programa de Pós-graduação em Sociedade e Fronteiras - PPGSOF da Universidade Federal de Roraima - UFRR, designada pela Portaria nº 005/2025 – PPGSOF/UFRR, de 6 de outubro de 2025, conforme a Resolução nº 010/2016 – CEPE e com o Regimento Interno do PPGSOF
+\vspace{0.5cm}
+\\
+RESOLVE: 
+\vspace{0.5cm}
+\\
+Art. 1º. Tornar público \subjectedital para o processo seletivo de ingresso no Curso de Mestrado em Sociedade e Fronteiras da UFRR, referente ao Edital nº 035/2025-PPGSOF de 10 de outubro de 2025.
+\\
+\begin{table}[h]
+\centering
+\csvreader[
+    separator=semicolon,
+    tabular=ccc,
+    table head=\hline Inscrição & Categoria AF & Resultado \\ \hline,
+    late after line=\\\hline
+]{dados.csv}{}%
+{\csvcoli & \csvcolii & \csvcoliii}
+\end{table}
+
+
+\tikzset{pgfornamentstyle/.style={draw = brown}}
+\begin{tikzpicture}[every node/.append style={inner sep=0},remember picture,overlay]
+
+\node at ([shift={(0,-9)}]current page.center) {\scalebox{-1}[1]{} {\begin{tabular}{c}
+Evânio Mascarenhas Paulo \\
+Presidente Interino
+\end{tabular}}};
+
+\node at ([shift={(6,-10)}]current page.center) {\scalebox{-1}[1]{} {\begin{tabular}{c}
+Mariana Perreira Cunha \\
+Membro
+\end{tabular}}};
+
+\node at ([shift={(-6,-10)}]current page.center) {\scalebox{-1}[1]{} {\begin{tabular}{c}
+Max André de Araújo \\
+Membro
+\end{tabular}}};
+
+\end{tikzpicture}
+
+\end{document}
