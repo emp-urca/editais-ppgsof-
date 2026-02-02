@@ -1,0 +1,40 @@
+name: Compilar LaTeX e Publicar PDF
+
+# Gatilho: Executa sempre que houver um 'push' (envio de código) para o branch main
+on:
+  push:
+    branches:
+      - main  # Verifique se o seu branch principal chama-se 'main' ou 'master'
+
+permissions:
+  contents: write
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Compila o arquivo LaTeX
+      - name: Compilar LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          # ATENÇÃO: Substitua 'main.tex' pelo nome do seu arquivo principal
+          root_file: main.tex 
+
+      # 3. Cria uma pasta temporária e move o PDF para lá
+      - name: Mover PDF para pasta pública
+        run: |
+          mkdir public
+          mv main.pdf public/ 
+          # Se seu arquivo não chama main.pdf, ajuste o nome acima também
+
+      # 4. Publica a pasta 'public' no GitHub Pages
+      - name: Deploy para GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
