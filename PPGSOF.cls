@@ -110,7 +110,7 @@
 \newcommand{\cabecalhoEdital}[1]{
     \noindent
     \begin{tabularx}{\textwidth}{@{} X r @{}}
-        \textbf{Edital nº #1/\the\year\ - PPGSOF} & Boa Vista, \today.
+        \textbf{Edital nº #1/\the\year\ - PPGSOF} & Boa Vista, Brasil. \today.
     \end{tabularx}
 }
 
