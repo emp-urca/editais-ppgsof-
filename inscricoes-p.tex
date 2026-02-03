@@ -5,7 +5,7 @@
 
 % Aplica a estilização personalizada do cabeçalho PPGSOF
 \fancyhead[C]{\fancyheadppgsof}
-\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\headrulewidth}{0pt}
 
 %-----------------------------------------------------------------------
 \begin{document}
@@ -13,22 +13,32 @@
 
 % Identificação do Edital
 \cabecalhoEdital{001}
+\def\assunto{Resultado preliminar de homologação das inscrições}
 
 % Ementa do Documento
-\ementa{Edital de abertura do processo de seleção da turma \celula{dados}{Turma}{1} no Programa de Pós-Graduação em Sociedade e Fronteiras - PPGSOF.}
+\ementa{Edital de \assunto\  para o processo de seleção da turma \celula{dados}{Turma}{1} no Programa de Pós-Graduação em Sociedade e Fronteiras - PPGSOF.}
 
 % Corpo do Texto - Preâmbulo
 A Comissão de Seleção do Programa de Pós-graduação em Sociedade e Fronteiras - PPGSOF da Universidade Federal de Roraima - UFRR, designada pela Portaria n.º \celula{dados}{Portaria}{1} - PPGSOF, de \celula{dados}{Data}{1}, e em conformidade com a Resolução n.º 010/2016 - CEPE e o Regimento Interno do PPGSOF,
 
-\vspace{0.5cm} 
+\vspace{0.5cm}
 \noindent \textbf{RESOLVE:}
 \vspace{0.5cm}
 
 % Artigos do Edital
 
-    \textbf{Art. 1º.} Tornar público o processo seletivo de ingresso no Curso de Mestrado em Sociedade e Fronteiras da UFRR, referente ao Edital n.º \celula{dados}{Edital}{1} -- PPGSOF, lançado em \celula{dados}{Lançamento}{1}.
+    \textbf{Art. 1º.} Tornar público \assunto\ para o processo seletivo de ingresso no Curso de Mestrado em Sociedade e Fronteiras da UFRR, referente ao Edital n.º \celula{dados}{Edital}{1} -- PPGSOF, lançado em \celula{dados}{Lançamento}{1}.
 
-\vspace{1cm}
+\begin{table}[h]
+\centering
+\csvreader[
+    separator=comma,
+    tabular=ccc,
+    table head=\hline nº & Inscrição & Resultado \\ \hline,
+    late after line=\\\hline
+]{isencoes}{}%
+{\csvcoli & \csvcolii & \csvcoliii}
+\end{table}
 
 % Área de Assinaturas
 \assinaturaTres{%
